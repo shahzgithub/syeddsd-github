@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Event</title>
+    <title>Hide Element On Click</title>
+    <title>Change Link Color On Hover</title>
+    <style>
+        #colorChangeLink {
+            color: blue;
+            text-decoration: none;
+            transition: color 0.3s; 
+        }
+
+        #colorChangeLink:hover {
+            color: red;
+        }
+    </style>
+      <title>Scroll to Top On Click</title>
+
+      <title>Play Sound On Click</title>
+      <title>Open New Window On Click</title>
+      <title>Alert On Button Click</title>
+      <title>Change Button Color On Hover</title>
+      <style>
+          #colorChangeButton {
+              background-color: blue;
+              color: white;
+              padding: 10px 20px;
+              border: none;
+              transition: background-color 0.3s;
+          }
+  
+          #colorChangeButton:hover {
+              background-color: red;
+          }
+      </style>
+      <title>Play Sound On Button Click</title>
+      <title>Alert On Mouse Over</title>
+      <title>Hide Element On Mouse Out</title>
+      <style>
+          #elementToHide {
+              width: 100px;
+              height: 100px;
+              background-color: lightblue;
+          }
+      </style>
+      <title>Open and Close Window</title>
+      <title>Read User Input</title>
+      <title>Read Checkbox Value</title>
+      <title>Read Select Box Value</title>
+      <title>Place Text in a Field</title>
+      <title>Marital Status</title>
+      <title>Fill Empty Input</title>
+      <title>Registration Form</title>
+</head>
+<body>
+    <button id="clickMe">Click Me</button>
+    
+    <script>
+        const button = document.getElementById('clickMe');
+        button.addEventListener('click', () => {
+            console.log('Button clicked!');
+        });
+    </script>
+
+
+     <button id="hideButton">Hide Element</button>
+     <div id="elementToHide" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+
+    <script>
+    const hideButton = document.getElementById('hideButton');
+    const elementToHide = document.getElementById('elementToHide');    
+    hideButton.addEventListener('click', () => {
+        elementToHide.style.display = 'none';
+    });
+</script>
+
+    <a href="#" id="colorChangeLink">Hover over me</a>
+
+
+    <a href="#" id="scrollToTopLink">Scroll to Top</a>
+
+<script>
+        const scrollToTopLink = document.getElementById('scrollToTopLink');
+        scrollToTopLink.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+</script>
+
+        <a href="#" id="playSoundLink">Play Sound</a>
+        <audio id="audioElement" src="example.mp3"></audio>
+
+<script>
+    const playSoundLink = document.getElementById('playSoundLink');
+    const audioElement = document.getElementById('audioElement');
+
+    playSoundLink.addEventListener('click', () => {
+        audioElement.play();
+    });
+</script>
+
+    <a href="https://www.google.com" target="_blank">google</a>
+
+    <button id="alertButton">Click Me</button>
+
+    <script>
+        const alertButton = document.getElementById('alertButton');
+        alertButton.addEventListener('click', () => {
+            alert('Button clicked!');
+        });
+    </script>
+    
+    <button id="colorChangeButton">Hover over me</button>
+
+
+    <button id="playSoundButton">Play Sound</button>
+    <audio id="audioElement" src="example.mp3"></audio>
+
+    <script>
+        const playSoundButton = document.getElementById('playSoundButton');
+        const audioelement = document.getElementById('audioelement');
+
+        playSoundButton.addEventListener('click', () => {
+            audioelement.play();
+        });
+    </script>
+
+        <div id="elementToAlert" style="width: 100px; height: 100px; background-color: lightblue;"></div>
+
+<script>
+        const elementToAlert = document.getElementById('elementToAlert');
+    
+        elementToAlert.addEventListener('mouseover', () => {
+        alert('Mouse over the element!');
+    });
+</script>
+
+        <div id="elementToHide"></div>
+
+<script>
+        const elementTohide = document.getElementById('elementTohide');
+        
+        elementTohide.addEventListener('mouseout', () => {
+            elementTohide.style.display = 'none';
+        });
+</script>
+
+
+        <a href="#" id="openWindowLink">Open Window</a>
+<script>
+        document.getElementById('openWindowLink').addEventListener('click', () => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+            
+            const newWindow = window.open('', '_blank', `width=${mouseX},height=${mouseY}`);
+            
+            const closeButton = document.createElement('button');
+            closeButton.innerText = 'Close Window';
+            closeButton.addEventListener('click', () => {
+                newWindow.close();
+            });
+
+            newWindow.document.body.appendChild(closeButton);
+        });
+</script>
+
+
+    <input type="text" id="textInput" placeholder="Enter text here">
+    <button onclick="readUserInput()">Read Input</button>
+
+<script>
+        function readUserInput() {
+            const userInput = document.getElementById('textInput').value;
+            console.log(userInput);
+        }
+</script>
+
+
+    <input type="checkbox" id="checkboxInput">
+    <label for="checkboxInput">Check me</label>
+    <button onclick="readCheckboxValue()">Read Checkbox</button>
+
+<script>
+        function readCheckboxValue() {
+            const checkboxValue = document.getElementById('checkboxInput').checked;
+            console.log(checkboxValue);
+        }
+</script>
+
+
+<select id="selectBox">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+</select>
+   <button onclick="readSelectBoxValue()">Read Select Box</button>
+
+<script>
+    function readSelectBoxValue() {
+        const selectBox = document.getElementById('selectBox');
+        const selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        console.log(selectedValue);
+    }
+</script>
+
+    <input type="text" id="customField">
+    <button onclick="placeTextInField()">Place Text</button>
+
+<script>
+        function placeTextInField() {
+            const customField = document.getElementById('customField');
+            customField.value = 'This is some text.';
+        }
+</script>
+
+
+    <label for="maritalStatus">Are you married?</label>
+    <input type="checkbox" id="maritalStatus" name="maritalStatus">
+    <button onclick="updateStatus()">Update Status</button>
+    <input type="text" id="status" placeholder="Status">
+
+<script>
+        function updateStatus() {
+            const married = document.getElementById('maritalStatus').checked;
+            const statusField = document.getElementById('status');
+            
+            if (!married) {
+                statusField.value = 'available';
+            }
+        }
+</script>
+
+
+    <input type="text" id="text" placeholder="Enter text here">
+    <button onclick="fillInput()">Fill Input</button>
+
+<script>
+    function fillInput() {
+        const textField = document.getElementById('text');
+        if (textField.value === '') {
+            textField.value = 'Default Text';
+        }
+    }
+</script>
+
+
+
+<form id="registrationForm" onsubmit="return validateForm()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <input type="submit" value="Register">
+</form>
+
+<script>
+    function validateForm() {
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        if (username === '' || email === '' || password === '') {
+            alert('All fields are required.');
+            return false;
+        }
+
+        return true; 
+    }
+</script>
+       <script src="./app.js"></script>
+</body>
+</html>
+
+
+
+ 
